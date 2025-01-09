@@ -1,0 +1,49 @@
+[0;33m--- Warning: GDB cannot open serial ports accessed as COMx[0m
+[0;33m--- Using \\.\COM5 instead...[0m
+[0;33m--- esp-idf-monitor 1.5.0 on \\.\COM5 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0;33m--- 0x400ffb43: task_wdt_timeout_handling at D:/Espressif/frameworks/esp-idf-v5.2.3/components/esp_system/task_wdt/task_wdt.c:441
+0x400fff60: task_wdt_isr at D:/Espressif/frameworks/esp-idf-v5.2.3/components/esp_system/task_wdt/task_wdt.c:515
+0x4008323d: _xt_lowint1 at D:/Espressif/frameworks/esp-idf-v5.2.3/components/xtensa/xtensa_vectors.S:1240
+0x400fc86b: gpio_set_level at D:/Espressif/frameworks/esp-idf-v5.2.3/components/driver/gpio/gpio.c:238 (discriminator 2)
+0x400d5f89: ds_gpio_set_screen_dc at D:/Espressif/frameworks/esp-idf-v5.2.3/desktopscreen/main/src/ds_gpio.c:120
+0x400d5e55: spi_send_cmd at D:/Espressif/frameworks/esp-idf-v5.2.3/desktopscreen/main/src/ds_spi.c:67
+0x400d5d26: my_disp_flush at D:/Espressif/frameworks/esp-idf-v5.2.3/desktopscreen/main/desktopscreen.c:22
+0x4010bbb9: call_flush_cb at D:/Espressif/frameworks/esp-idf-v5.2.3/desktopscreen/managed_components/lvgl__lvgl/src/core/lv_refr.c:1322
+0x400dc5e3: draw_buf_flush at D:/Espressif/frameworks/esp-idf-v5.2.3/desktopscreen/managed_components/lvgl__lvgl/src/core/lv_refr.c:1297
+0x400dcb75: refr_area_part at D:/Espressif/frameworks/esp-idf-v5.2.3/desktopscreen/managed_components/lvgl__lvgl/src/core/lv_refr.c:796
+0x400dcccb: refr_area at D:/Espressif/frameworks/esp-idf-v5.2.3/desktopscreen/managed_components/lvgl__lvgl/src/core/lv_refr.c:678
+0x400dcdd8: refr_invalid_areas at D:/Espressif/frameworks/esp-idf-v5.2.3/desktopscreen/managed_components/lvgl__lvgl/src/core/lv_refr.c:616
+0x400dcf7e: _lv_disp_refr_timer at D:/Espressif/frameworks/esp-idf-v5.2.3/desktopscreen/managed_components/lvgl__lvgl/src/core/lv_refr.c:324
+0x400e1a1d: lv_timer_exec at D:/Espressif/frameworks/esp-idf-v5.2.3/desktopscreen/managed_components/lvgl__lvgl/src/misc/lv_timer.c:313 (discriminator 2)
+0x400e1ac7: lv_timer_handler at D:/Espressif/frameworks/esp-idf-v5.2.3/desktopscreen/managed_components/lvgl__lvgl/src/misc/lv_timer.c:109
+0x400d5deb: lv_task_handler at D:/Espressif/frameworks/esp-idf-v5.2.3/desktopscreen/managed_components/lvgl__lvgl/src/lv_api_map.h:37
+ (inlined by) app_main at D:/Espressif/frameworks/esp-idf-v5.2.3/desktopscreen/main/desktopscreen.c:85
+0x4010e9df: main_task at D:/Espressif/frameworks/esp-idf-v5.2.3/components/freertos/app_startup.c:208
+0x40087399: vPortTaskWrapper at D:/Espressif/frameworks/esp-idf-v5.2.3/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x400ffb43: task_wdt_timeout_handling at D:/Espressif/frameworks/esp-idf-v5.2.3/components/esp_system/task_wdt/task_wdt.c:441
+0x400fff60: task_wdt_isr at D:/Espressif/frameworks/esp-idf-v5.2.3/components/esp_system/task_wdt/task_wdt.c:515
+0x4008323d: _xt_lowint1 at D:/Espressif/frameworks/esp-idf-v5.2.3/components/xtensa/xtensa_vectors.S:1240
+0x40084087: xPortEnterCriticalTimeoutSafe at D:/Espressif/frameworks/esp-idf-v5.2.3/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:579
+ (inlined by) vPortEnterCriticalSafe at D:/Espressif/frameworks/esp-idf-v5.2.3/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:588
+ (inlined by) acquire_core at D:/Espressif/frameworks/esp-idf-v5.2.3/components/driver/spi/spi_bus_lock.c:361
+0x4008423e: spi_bus_lock_acquire_start at D:/Espressif/frameworks/esp-idf-v5.2.3/components/driver/spi/spi_bus_lock.c:713
+0x40083f39: spi_device_polling_start at D:/Espressif/frameworks/esp-idf-v5.2.3/components/driver/spi/gpspi/spi_master.c:1112
+0x4008405e: spi_device_polling_transmit at D:/Espressif/frameworks/esp-idf-v5.2.3/components/driver/spi/gpspi/spi_master.c:1184
+0x400d5e7f: spi_send_cmd at D:/Espressif/frameworks/esp-idf-v5.2.3/desktopscreen/main/src/ds_spi.c:74
+0x400d5d26: my_disp_flush at D:/Espressif/frameworks/esp-idf-v5.2.3/desktopscreen/main/desktopscreen.c:22
+0x4010bbb9: call_flush_cb at D:/Espressif/frameworks/esp-idf-v5.2.3/desktopscreen/managed_components/lvgl__lvgl/src/core/lv_refr.c:1322
+0x400dc5e3: draw_buf_flush at D:/Espressif/frameworks/esp-idf-v5.2.3/desktopscreen/managed_components/lvgl__lvgl/src/core/lv_refr.c:1297
+0x400dcb75: refr_area_part at D:/Espressif/frameworks/esp-idf-v5.2.3/desktopscreen/managed_components/lvgl__lvgl/src/core/lv_refr.c:796
+0x400dcccb: refr_area at D:/Espressif/frameworks/esp-idf-v5.2.3/desktopscreen/managed_components/lvgl__lvgl/src/core/lv_refr.c:678
+0x400dcdd8: refr_invalid_areas at D:/Espressif/frameworks/esp-idf-v5.2.3/desktopscreen/managed_components/lvgl__lvgl/src/core/lv_refr.c:616
+0x400dcf7e: _lv_disp_refr_timer at D:/Espressif/frameworks/esp-idf-v5.2.3/desktopscreen/managed_components/lvgl__lvgl/src/core/lv_refr.c:324
+0x400e1a1d: lv_timer_exec at D:/Espressif/frameworks/esp-idf-v5.2.3/desktopscreen/managed_components/lvgl__lvgl/src/misc/lv_timer.c:313 (discriminator 2)
+0x400e1ac7: lv_timer_handler at D:/Espressif/frameworks/esp-idf-v5.2.3/desktopscreen/managed_components/lvgl__lvgl/src/misc/lv_timer.c:109
+0x400d5deb: lv_task_handler at D:/Espressif/frameworks/esp-idf-v5.2.3/desktopscreen/managed_components/lvgl__lvgl/src/lv_api_map.h:37
+ (inlined by) app_main at D:/Espressif/frameworks/esp-idf-v5.2.3/desktopscreen/main/desktopscreen.c:85
+0x4010e9df: main_task at D:/Espressif/frameworks/esp-idf-v5.2.3/components/freertos/app_startup.c:208
+0x40087399: vPortTaskWrapper at D:/Espressif/frameworks/esp-idf-v5.2.3/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0m

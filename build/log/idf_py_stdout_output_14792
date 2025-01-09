@@ -1,0 +1,88 @@
+[0;32mI (13) boot: ESP-IDF v5.2.3 2nd stage bootloader[0m
+[0;32mI (13) boot: compile time Jan  3 2025 23:59:22[0m
+[0;32mI (13) boot: Multicore bootloader[0m
+[0;32mI (16) boot: chip revision: v1.1[0m
+[0;32mI (20) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (25) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (29) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (34) boot: Enabling RNG early entropy source...[0m
+[0;32mI (39) boot: Partition Table:[0m
+[0;32mI (43) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (50) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (58) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (65) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (73) boot: End of partition table[0m
+[0;32mI (77) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0fe4ch ( 65100) map[0m
+[0;32mI (108) esp_image: segment 1: paddr=0001fe74 vaddr=3ffb0000 size=001a4h (   420) load[0m
+[0;32mI (108) esp_image: segment 2: paddr=00020020 vaddr=400d0020 size=3f300h (258816) map[0m
+[0;32mI (202) esp_image: segment 3: paddr=0005f328 vaddr=3ffb01a4 size=022a0h (  8864) load[0m
+[0;32mI (206) esp_image: segment 4: paddr=000615d0 vaddr=40080000 size=0e9a4h ( 59812) load[0m
+[0;32mI (238) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (239) boot: Disabling RNG early entropy source...[0m
+[0;32mI (250) cpu_start: Multicore app[0m
+[0;32mI (259) cpu_start: Pro cpu start user code[0m
+[0;32mI (259) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (259) cpu_start: Application information:[0m
+[0;32mI (262) cpu_start: Project name:     desktopscreen[0m
+[0;32mI (268) cpu_start: App version:      v5.2.3[0m
+[0;32mI (273) cpu_start: Compile time:     Jan  4 2025 12:51:52[0m
+[0;32mI (279) cpu_start: ELF file SHA256:  89943f2e6...[0m
+[0;32mI (284) cpu_start: ESP-IDF:          v5.2.3[0m
+[0;32mI (289) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (294) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (299) cpu_start: Chip rev:         v1.1[0m
+[0;32mI (304) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (311) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (317) heap_init: At 3FFBC1D8 len 00023E28 (143 KiB): DRAM[0m
+[0;32mI (323) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (329) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (336) heap_init: At 4008E9A4 len 0001165C (69 KiB): IRAM[0m
+[0;32mI (343) spi_flash: detected chip: generic[0m
+[0;32mI (346) spi_flash: flash io: dio[0m
+[0;33mW (350) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (364) main_task: Started on CPU0[0m
+[0;32mI (374) main_task: Calling app_main()[0m
+[0;32mI (374) gpio: GPIO[27]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (374) gpio: GPIO[14]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (384) gpio: GPIO[12]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (394) gpio: GPIO[13]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:2 [0m
+[0;31mE (5374) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (5374) task_wdt:  - IDLE0 (CPU 0)[0m
+[0;31mE (5374) task_wdt: Tasks currently running:[0m
+[0;31mE (5374) task_wdt: CPU 0: background_task[0m
+[0;31mE (5374) task_wdt: CPU 1: IDLE1[0m
+[0;31mE (5374) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400FFB7F:0x3FFB0F60 0x400FFF9C:0x3FFB0F80 0x4008323D:0x3FFB0FB0 0x400D6216:0x3FFC0390 0x400DBF89:0x3FFC03D0 0x400DCA6C:0x3FFC0400 0x400DCD07:0x3FFC0470 0x400DCE14:0x3FFC04A0 0x400DCFBA:0x3FFC04C0 0x400E1A59:0x3FFC04F0 0x400E1B03:0x3FFC0510 0x400D5D73:0x3FFC0530 0x40087399:0x3FFC0550
+
+[0;31mE (10374) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (10374) task_wdt:  - IDLE0 (CPU 0)[0m
+[0;31mE (10374) task_wdt: Tasks currently running:[0m
+[0;31mE (10374) task_wdt: CPU 0: background_task[0m
+[0;31mE (10374) task_wdt: CPU 1: IDLE1[0m
+[0;31mE (10374) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400FFB7F:0x3FFB0F60 0x400FFF9C:0x3FFB0F80 0x4008323D:0x3FFB0FB0 0x4000BFED:0x3FFC0280 0x4008774A:0x3FFC0290 0x400841DB:0x3FFC02B0 0x40084299:0x3FFC02E0 0x40084038:0x3FFC0300 0x40084069:0x3FFC0320 0x400D5E69:0x3FFC0340 0x400D5D55:0x3FFC0390 0x4010BC91:0x3FFC03B0 0x400DC61F:0x3FFC03E0 0x400DCBB1:0x3FFC0400 0x400DCD07:0x3FFC0470 0x400DCE14:0x3FFC04A0 0x400DCFBA:0x3FFC04C0 0x400E1A59:0x3FFC04F0 0x400E1B03:0x3FFC0510 0x400D5D73:0x3FFC0530 0x40087399:0x3FFC0550
+
+[0;31mE (15374) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (15374) task_wdt:  - IDLE0 (CPU 0)[0m
+[0;31mE (15374) task_wdt: Tasks currently running:[0m
+[0;31mE (15374) task_wdt: CPU 0: background_task[0m
+[0;31mE (15374) task_wdt: CPU 1: IDLE1[0m
+[0;31mE (15374) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400FFB7F:0x3FFB0F60 0x400FFF9C:0x3FFB0F80 0x4008323D:0x3FFB0FB0 0x40083E99:0x3FFC0320 0x400D5E69:0x3FFC0340 0x400D5D55:0x3FFC0390 0x4010BC91:0x3FFC03B0 0x400DC61F:0x3FFC03E0 0x400DCBB1:0x3FFC0400 0x400DCD07:0x3FFC0470 0x400DCE14:0x3FFC04A0 0x400DCFBA:0x3FFC04C0 0x400E1A59:0x3FFC04F0 0x400E1B03:0x3FFC0510 0x400D5D73:0x3FFC0530 0x40087399:0x3FFC0550
+
+[0;31mE (20374) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (20374) task_wdt:  - IDLE0 (CPU 0)[0m
+[0;31mE (20374) task_wdt: Tasks currently running:[0m
+[0;31mE (20374) task_wdt: CPU 0: background_task[0m
+[0;31mE (20374) task_wdt: CPU 1: IDLE1[0m
+[0;31mE (20374) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400FFB7F:0x3FFB0F60 0x400FFF9C:0x3FFB0F80 0x4008323D:0x3FFB0FB0 0x400E17E6:0x3FFC01B0 0x400E1839:0x3FFC01D0 0x400DB0A6:0x3FFC01F0 0x400DB10A:0x3FFC0240 0x400D6677:0x3FFC0270 0x400D71F6:0x3FFC0320 0x4010B601:0x3FFC0350 0x400D612D:0x3FFC0370 0x400D6216:0x3FFC0390 0x400DBF89:0x3FFC03D0 0x400DCA6C:0x3FFC0400 0x400DCD07:0x3FFC0470 0x400DCE14:0x3FFC04A0 0x400DCFBA:0x3FFC04C0 0x400E1A59:0x3FFC04F0 0x400E1B03:0x3FFC0510 0x400D5D73:0x3FFC0530 0x40087399:0x3FFC0550
+

@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "lvgl.h": "c",
+        "ds_i2c.h": "c",
+        "ds_spi.h": "c",
+        "lv_timer.h": "c",
+        "lv_log.h": "c",
+        "ds_gpio.h": "c"
+    }
+}
