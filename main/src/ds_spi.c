@@ -15,6 +15,10 @@
 #include "esp_system.h"
 #include "driver/spi_master.h"
 #include "driver/gpio.h"
+#include "hal/lcd_types.h"
+#include "esp_lcd_panel_io.h"
+#include "esp_lcd_panel_vendor.h"
+#include "esp_lcd_panel_ops.h"
 
 #include "ds_gpio.h"
 
@@ -133,6 +137,8 @@ void screen_spi_init(void)
         // .pre_cb=spi_pre_transfer_callback,  //Specify pre-transfer callback to handle D/C line
     };
 
+    esp_lcd_panel_io_handle_t io_handle = NULL;
+
 
     // 初始化SPI总线
     ret=spi_bus_initialize(SPI2_HOST, &buscfg, SPI_DMA_DISABLED);
@@ -142,4 +148,33 @@ void screen_spi_init(void)
     ret=spi_bus_add_device(SPI2_HOST, &devcfg, &spi);
     ESP_ERROR_CHECK(ret);
     
+}
+
+esp_lcd_panel_handle_t epd_init(void) {
+    // SPI 面板 IO 配置
+    esp_lcd_panel_io_spi_config_t io_config = {
+        .dc_gpio_num = SCREEN_GPIO_OUTPUT_DC,
+        .cs_gpio_num = SCREEN_GPIO_OUTPUT_CS,
+        .pclk_hz = 4000000, // SPI 时钟频率
+        .spi_mode = 0,
+        .trans_queue_depth = 10,
+    };
+
+    esp_lcd_panel_io_handle_t io_handle = NULL;
+    ESP_ERROR_CHECK(esp_lcd_new_panel_io_spi(SPI2_HOST, &io_config, &io_handle));
+
+    // 初始化墨水屏面板
+    esp_lcd_panel_handle_t panel_handle = NULL;
+    esp_lcd_panel_dev_config_t panel_config = {
+        .reset_gpio_num = SCREEN_GPIO_OUTPUT_RES,
+        .rgb_ele_order = LCD_RGB_ELEMENT_ORDER_BGR,
+        .bits_per_pixel = 1,  // 墨水屏通常是单色显示
+    };
+    // ESP_ERROR_CHECK(esp_lcd_new_panel_epaper(io_handle, &panel_config, &panel_handle));
+
+    // 复位和初始化面板
+    ESP_ERROR_CHECK(esp_lcd_panel_reset(panel_handle));
+    ESP_ERROR_CHECK(esp_lcd_panel_init(panel_handle));
+
+    return panel_handle;
 }

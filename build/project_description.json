@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "desktopscreen",
-    "project_version":    "v5.2.3",
+    "project_version":    "e0787dc-dirty",
     "project_path":       "D:/Espressif/frameworks/esp-idf-v5.2.3/desktopscreen",
     "idf_path":           "D:/Espressif/frameworks/esp-idf-v5.2.3",
     "build_dir":          "D:/Espressif/frameworks/esp-idf-v5.2.3/desktopscreen/build",
