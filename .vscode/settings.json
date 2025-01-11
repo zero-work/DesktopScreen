@@ -5,6 +5,10 @@
         "ds_spi.h": "c",
         "lv_timer.h": "c",
         "lv_log.h": "c",
-        "ds_gpio.h": "c"
+        "ds_gpio.h": "c",
+        "bitset": "c",
+        "string_view": "c",
+        "regex": "c",
+        "ds_screen.h": "c"
     }
 }

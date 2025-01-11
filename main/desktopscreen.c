@@ -9,9 +9,6 @@
 
 #include "lvgl.h"
 
-
-#include "ds_gpio.h"
-#include "ds_i2c.h"
 #include "ds_spi.h"
 
 
