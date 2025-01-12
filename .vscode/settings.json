@@ -9,6 +9,7 @@
         "bitset": "c",
         "string_view": "c",
         "regex": "c",
-        "ds_screen.h": "c"
+        "ds_screen.h": "c",
+        "esp_lvgl_port_priv.h": "c"
     }
 }

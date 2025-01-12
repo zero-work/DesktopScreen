@@ -1,0 +1,9 @@
+CMake Error at D:/Espressif/frameworks/esp-idf-v5.2.3/tools/cmake/component.cmake:314 (message):
+  Include directory
+  'D:/Espressif/frameworks/esp-idf-v5.2.3/desktopscreen/main/.include/SPI' is
+  not a directory.
+Call Stack (most recent call first):
+  D:/Espressif/frameworks/esp-idf-v5.2.3/tools/cmake/component.cmake:482 (__component_add_include_dirs)
+  main/CMakeLists.txt:1 (idf_component_register)
+
+

@@ -14,14 +14,25 @@
 #include "esp_system.h"
 #include "driver/spi_master.h"
 #include "driver/gpio.h"
+#include "esp_err.h"
 
 
 //#define PIN_NUM_MISO 1  //屏幕只写不读，此引脚不用
 #define PIN_NUM_MOSI 26
 #define PIN_NUM_CLK  25
 #define PIN_NUM_CS   27
+//屏幕数据/指令选择 1-data 0-cmd
+#define PIN_NUM_DC 14
+#define SCREEN_GPIO_OUTPUT_DC_SEL ((1ULL<<SCREEN_GPIO_OUTPUT_DC))
+//屏幕复位 0-reset
+#define PIN_NUM_RES 12
+#define SCREEN_GPIO_OUTPUT_RES_SEL ((1ULL<<SCREEN_GPIO_OUTPUT_RES))
+//屏幕状态 1-busy 
+#define PIN_NUM_BUSY 13
+#define SCREEN_GPIO_INTPUT_BUSY_SEL ((1ULL<<SCREEN_GPIO_INTPUT_BUSY))
 
-spi_device_handle_t spi;
+
+static const char *TAG = "DeskTopScreen_SPI";
 
 void spi_send_cmd(const uint8_t cmd)
 {
@@ -73,9 +84,9 @@ void spi_pre_transfer_callback(spi_transaction_t *t)
 
 void screen_spi_init(void)
 {
-    esp_err_t ret;
+    esp_err_t ret = ESP_OK;
     
-    //IO设置
+    ESP_LOGD(TAG, "Init SPI")
     spi_bus_config_t buscfg={
         .miso_io_num = -1,                // MISO信号线
         .mosi_io_num = PIN_NUM_MOSI,                // MOSI信号线
@@ -83,10 +94,12 @@ void screen_spi_init(void)
         .quadwp_io_num = -1,                        // WP信号线，专用于QSPI的D2
         .quadhd_io_num = -1,                        // HD信号线，专用于QSPI的D3
         .max_transfer_sz = 64*8,                    // 最大传输数据大小
-
     };
+    ESP_RETURN_ON_ERROR(spi_bus_initialize(SPI2_HOST, &buscfg, SPI_DMA_CH_AUTO), TAG, "SPI init failed");
+    
     
     //速率 模式设置
+    ESP_LOGD(TAG, "Install panel IO");
     spi_device_interface_config_t devcfg={
         .clock_speed_hz=15*1000*1000,            //Clock out at 26 MHz
         .mode=0,                                //SPI mode 0
